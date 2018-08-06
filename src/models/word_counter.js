@@ -14,10 +14,21 @@ WordCounter.prototype.bindEvents = function () {
 };
 
 WordCounter.prototype.countWords = function (sentence) {
-  if (sentence.length === 0){
-    return 0;
-  }
-  return sentence.split(' ').length;
+  var regEx = /([^\u0000-\u007F]|\w)+/g;
+  var array = [];
+     return array.concat(sentence.match(regEx)).length;
+
+  // var currentCount = 0;
+  // for (var i = 0; i < sentence.length; i++){
+  //   if (sentence[i] === " " && sentence[i + 1] != " " && i != 0 && currentCount != 0)
+  //   currentCount = currentCount + 1;
+  // }
+  // currentCount = currentCount + 1;
+  // return currentCount;
+  // if (sentence.length === 0){
+  //   return 0;
+  // }
+  // return sentence.split(' ').length;
 };
 
 module.exports = WordCounter;
